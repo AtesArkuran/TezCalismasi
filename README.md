@@ -50,7 +50,7 @@ Makalede yapılan çalışmanın amacı mobil robot üzerinde bulunan bir kamera
 
 ![alt text](Images/6_1.JPG)
 
-Bir resimden birkaç tane insan olarak algılanabilir özellik HOG özellik çıkarma algoritması ile çıkarılmaktadır. Bu özelliklerin hangisinin insan olduğunu anlamak için Support Vector Machine (SVM) kullanılmıştır. Resimdeki insan algılandıktan sonra iskeletin çıkarılması için star-skeleton yöntemi kullanılmaktadır ve çıkarılan iskeletten elde edilen bilgiler Hidden Markov Model’de kullanılarak insan hareketi belirlenmektedir. İnsan hareketi algılama işlemi aşağıdaki gibi yapılmaktadır:
+Bir resimden birkaç tane insan olarak algılanabilir özellik Histograms of Oriented Gradients (HOG) özellik çıkarma algoritması ile çıkarılmaktadır. Bu özelliklerin hangisinin insan olduğunu anlamak için Support Vector Machine (SVM) kullanılmıştır. Resimdeki insan algılandıktan sonra iskeletin çıkarılması için star-skeleton yöntemi kullanılmaktadır ve çıkarılan iskeletten elde edilen bilgiler Hidden Markov Model’de kullanılarak insan hareketi belirlenmektedir. İnsan hareketi algılama işlemi aşağıdaki gibi yapılmaktadır:
 
 ![alt text](Images/6_2.JPG)
 
@@ -80,9 +80,25 @@ https://www.sciencedirect.com/science/article/abs/pii/S0167865520300106
 
 https://sci-hub.se/https://doi.org/10.1016/j.patrec.2020.01.010
 
-Makalede yapılan çalışmanın amacı, RGB derinlik kamerasından alınan iskelet ve RGB bilgilerini beraber kullanarak insan hareketlerini algılamaktır. Microsoft Kinect kamerasının 
+Makalede yapılan çalışmanın amacı, RGB derinlik kamerasından alınan iskelet ve RGB bilgilerini beraber kullanarak insan hareketlerini algılamaktır. Microsoft Kinect kamerasının iskelet çıkarma özelliği kullanılmıştır. Fakat Kinect'ten alınan iskelet verilerinin %100 doğru olmadığı makalede belirtilmiştir. İskelet verileri Bag of Word (BoW) modeli ile kodlanmıştır. Derinlik kamerasından alınan RGB görüntü serisinin işlenebilmesi için görüntü küçültülmektedir. Görüntü resimde algılanan kişinin omuriliğine göre ortalanarak normal görüntünün %25'i olacak kadar küçültülür. Sonrasında görüntüler ortalarından yatay olarak kesilir. Bununla beraber görüntüler Sobel filtresinden geçirilir. Böylece görüntüler arasındaki farklar daha kolay algılanmaktadır. Anlatılan işlem aşağıdaki gibidir:
+
+![alt text](Images/9_1.JPG)
+
+Burada elde edilen görüntülere de Histograms of Oriented Gradients
+(HOG) uygulanır ve elde edilen özelliklere Support Vector Machine (SVM) uygulanır. Bunlar olurken aynı zamanda BoW ile kodlanmış iskelet verisi de Random Forest Classifier'dan geçirilir. Sonrasında bu iki operasyondan elde edilen veriler birleştirilir ve yapılan insan hareketi algılanır. Bahsedilen adımlar aşağıdaki gibidir:
+
+![alt text](Images/9_2.JPG)
 
 ## 10. Real-Time Human Action Recognition with a Low-Cost RGB Camera and Mobile Robot Platform - [PDF](PDFs/10_Real-Time_Human_Action_Recognition_with_a_Low-Cost_RGB_Camera_and_Mobile_Robot_Platform.pdf)
 
 https://www.mdpi.com/1424-8220/20/10/2886
 
+Makalede yapılan çalışmanın amacı, OpenPose ve 3D-baseline kütüphanelerini RGB görüntü üzerinde kullanarak elde edilen iskelet bilgisini konvolüsyonel sinir ağı (KSA) modeline vererek insan hareketi algılamaktır. Bu çalışmada elde edilen iskelet bilgisi vektörde tutulmak yerine görüntüye çevrilmiştir ve sonrasında KSA modeline verilmiştir. Yapılan çalışmanın akış şeması genel olarak aşağıdaki gibidir:
+
+![alt text](Images/10_1.JPG)
+
+İskelet çıkarma işleminde 17 tane eklem noktası elde edilmektedir. Bahsedilen iskeleti görüntüye çevirme işlemi iskeleti bir görüntünün üzerine basmak değildir. Bahsedilen eklem noktalarının x, y, z değerlerini görüntünün r, g, b değerlerine atamaktır. Elde edilen bu veriler aşağıdaki KSA modeline verilerek insan hareketi algılanmaktadır:
+
+![alt text](Images/10_2.JPG)
+
+İnsan algılama robot üzerinde bulunan tek RGB kamera ile yapılmaktadır. Burada görüntünün işlenmesi işlemi robotta bulunan NVidia Jetson Xavier kartıyla gerçekleşmektedir. Kullanılan robot ROBOTIS Turtlebot'un robotlarından biridir (Waffle olabilir). Kullanılan veri seti NTU-RGBD'dir. Bu veri setinin, bulunan en büyük Kinect V2 veri seti olduğu makalede belirtilmiştir. Fakat bu veri setinden derinlik bilgisini almak yerine sadece RGB görüntüler alınıştır. Çalışmanın başarı sonuçları accuracy 0.71, precision 0.71 ve recall 0.69 olarak ölçülmüştür. Hatırlamak gerekir ki bu çalışma gerçek zamanlı olarak çalışmıştır elde edilen görüntülerde derinlik bilgisi bulunmamaktadır.  
