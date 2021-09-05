@@ -53,3 +53,21 @@ Bir resimden birkaç tane insan olarak algılanabilir özellik HOG özellik çı
 ![alt text](Images/6_2.JPG)
 
 Bu yapılan çalışmalarla beraber insan hareketleri sınıflarını genişletmek için nesne algılma da projeye eklenmiştir. Nesne algılama ile insanın hangi nesneler ile hareketi gerçekleştirdiği belirlenmektedir. Bununla beraber insanın hareketi nerede yaptığı bilgisi de elde edilmektedir. Nesne algılama için SURF özellik çıkarma algoritması kullanılmıştır ve elde edilen özellikler için feature matching işlemi uygulanmıştır. Görüntüdeki insanı belirleme başarısı ortalama %95.33, insan hareketini belirleme başarısı ise ortalama %94.8 olarak tespit edilmiştir.
+
+## Mobile Camera Positioning to Optimize The Observability of Human Activity Recognition Tasks
+
+https://ieeexplore.ieee.org/document/1545599
+
+https://sci-hub.se/10.1109/IROS.2005.1545599
+
+Makalede yapılan çalışmanın amacı mobil kamerayı insan hareketlerini en iyi algılayabilecek şekilde konumlandırmaktır. Burada kameranın en iyi bulunacağı konum, görüntüdeki cismin görünüşünü en üst düzeyde çıkarırken tüm hareket yolunu gözlemleyecek şekilde belirlenmiştir. Bununla beraber kameranın cisme olabildiği kadar yakın olması gerekmektedir. Robotun olması gereken konumu belirlemek için gerekli formüller çıkarılıp Matlab ile simule edilmiştir. Makalede yapılan çalışmada tek kameralı robot (ATRV-JR) kullanılmıştır ve bu robot ileri-geri yürüyen bir insana göre kendini konumlandırmaktadır. Kameradan alınan görüntüler segmentlere ayrılmıştır ve hareket eden cismi arka plandan ayırmıştır. Segmentasyon işlemi için Gaussian Mixture Model tabanlı arka plan ayrıştırma algoritmasıyla beraber Kalman filtresi kullanılmıştır. Elde edilen görüntülerde bulunan cismin pozisyonlarına bakılarak cismin aldığı yol çıkarılmaktadır ve robotun bulunması gereken pozisyon hesaplanmaktadır. Kamera kalibrasyonu yene satranç tahtası görüntüsü yerleştirilerek yapılmıştır. Yapılan denemeler sonucunda izlenebilirlik kalitesinin %61'e kadar arttırıldığı gözlemlenmiştir.
+
+## A Depth Camera-based Human Activity Recognition via Deep Learning Recurrent Neural Network for Health and Social Care Services
+
+https://www.sciencedirect.com/science/article/pii/S1877050916322943
+
+Makalede yapılan çalışmanın amacı, daha önce kullanılmamış olan Recurrent Neural Network (RNN) ile insan hareketlerini algılayarak Hidden Markov Model (HMM) ve Deep Belief Network (DBN) ile çıkan sonuçları karşılaştırmaktır. Belirtilen yöntemlerde görüntü almak için derinlik kamerası kullanılmıştır. Derinlik kamerasıyla alınan görüntüde insan vücudu 14 parça ,yani 28 birleşme noktası olarak analiz edilmektedir. RNN'in optimize edilmesi için Adam optimizer kullanılmıştır. Belirtilen RNN Long Short-Term Memory ile birlikte kullanılmıştır. Çalışmada gerçekleştirilen sistem aşağıdaki gibidir:
+
+![alt text](Images/8_1.JPG)
+
+Yapılan denemeler sonucunda HMM ile insan hareketi algılama doğruluğu 4.48 sapma ile %92.49, DBN ile insan hareketi algılama doğruluğu 1.92 sapma ile %97.54, RNN ile insan hareketi algılama doğruluğu 0.11 sapma ile %99.55 olarak gözlemlenmiştir.
