@@ -4,8 +4,6 @@
 
 https://www.researchgate.net/publication/322675054_Human_Activity_Recognition_for_Mobile_Robot
 
-
-
 Makalede konvolüsyonel sinir ağları (KSA) kullanılarak bir mobil robota insan hareketlerini algılatmak amaçlanmıştır. İnsan hareketlerini algılamak için derinlik kamerası kullanmak yerine Vicon hareket algılama sistemleri kullanılmıştır. Bu nedenle makalede belirtilen çalışmada herhangi bir görüntü işleme yapılmadığı görülmektedir. Bahsedilen KSA modeli, iki adet bir bouytlu konvolüsyonel katman, bir adet max pooling katmanı, bir adet tam bağlı katman ve bir adet de Softmax katmanından oluşmaktadır. KSA burada sadece insanın yaptığı hareketi sınıflandırmak için kullanılmıştır. Hareketleri algılamak için de iki bacak, iki kol, bir kafa ve bir omuzdan alınan hareket verileri kullanılmıştır. Bununla beraber KSA modelini eğitmek için ise Vicon’un sunduğu VMCUHK veri seti kullanılmıştır. KSA modeli tahmini el sıkma, kafalama, zıplama, koşma, oturma, ve yürüme sınıfları üzerinedir. Modelin yaptığı tahminler ile çıkan F1 skor sonucu %95.70 olarak hesaplanmıştır.
 
 ## 2. Human Activity Recognition with Deep Reinforcement Learning using the Camera of a Mobile Robot - [PDF](PDFs/2_Human_Activity_Recognition_with_Deep_Reinforcement_Learning_Using_the_Camera_of_a_Mobile_Robot.pdf)
@@ -101,4 +99,34 @@ Makalede yapılan çalışmanın amacı, OpenPose ve 3D-baseline kütüphaneleri
 
 ![alt text](Images/10_2.JPG)
 
-İnsan algılama robot üzerinde bulunan tek RGB kamera ile yapılmaktadır. Burada görüntünün işlenmesi işlemi robotta bulunan NVidia Jetson Xavier kartıyla gerçekleşmektedir. Kullanılan robot ROBOTIS Turtlebot'un robotlarından biridir (Waffle olabilir). Kullanılan veri seti NTU-RGBD'dir. Bu veri setinin, bulunan en büyük Kinect V2 veri seti olduğu makalede belirtilmiştir. Fakat bu veri setinden derinlik bilgisini almak yerine sadece RGB görüntüler alınıştır. Çalışmanın başarı sonuçları accuracy 0.71, precision 0.71 ve recall 0.69 olarak ölçülmüştür. Hatırlamak gerekir ki bu çalışma gerçek zamanlı olarak çalışmıştır elde edilen görüntülerde derinlik bilgisi bulunmamaktadır.  
+İnsan algılama robot üzerinde bulunan tek RGB kamera ile yapılmaktadır. Burada görüntünün işlenmesi işlemi robotta bulunan NVidia Jetson Xavier kartıyla gerçekleşmektedir. Kullanılan robot ROBOTIS Turtlebot'un robotlarından biridir (Waffle olabilir). Kullanılan veri seti NTU-RGBD'dir. Bu veri setinin, bulunan en büyük Kinect V2 veri seti olduğu makalede belirtilmiştir. Fakat bu veri setinden derinlik bilgisini almak yerine sadece RGB görüntüler alınıştır. Çalışmanın başarı sonuçları accuracy 0.71, precision 0.71 ve recall 0.69 olarak ölçülmüştür. Hatırlamak gerekir ki bu çalışma gerçek zamanlı olarak çalışmıştır elde edilen görüntülerde derinlik bilgisi bulunmamaktadır. 
+
+## 11. A Unified Approach for Patient Activity Recognition in Healthcare Using Depth Camera - [PDF](PDFs/11_A_Unified_Approach_for_Patient_Activity_Recognition_in_Healthcare_Using_Depth_Camera.pdf)
+
+https://ieeexplore.ieee.org/abstract/document/9464951
+
+Makalede yapılan çalışmanın amacı, yeni bir özellik seçim yöntemini insan hareketi algılama işleminde kullanmaktır. Genel olarak insan hareketi algılamanın 3 elementi vardır: segmentasyon, özellik çıkarımı ve seçimi, ve algılama. Bu çalışmada yeni özellik çıkarımı ve seçimi için geliştirilen yönteme dikkat çekilmiştir. Geliştirilen yöntem, görüntü serilerinden sınırlı özniteliklerin toplanmasına odaklanır ve sınıflarını regresyon değerlerine göre ayırt eder. Çalışmada algılanan insan hareketleri koşma, yürüme, zıplama, atlama, tek el sallama, çift el sallama, eğilme, yerinde zıplama, yana doğru hareket etme, alkışlama ve boks yapma olacak şekilde 11'e ayrılmıştır. İnsanı görüntüde segmente etmek için active contour (AC) yönteminin Chan-Vese (CV) tarafından geliştirilmiş versiyonu kullanılmak istenmiştir. Fakat bu yöntem yetersiz kaldığı için nesne farklılıklarını azaltan ve iki alan arasındaki mesafeyi artıran enerji fonksiyonlarının CV'sine Bhattacharyya mesafesinin evrimine dayalı terimleri dahil edilmiştir (Ne demek istendiğini tam anlamadım araştırılacak). Segmentasyon işleminden sonra önerilen özellik çıkarım ve seçimi işleminden elde edilen veriler ile Hidden Markov Model kullanılarak insan hareketi algılanmaktadır. Çalışmanın başarı oranı 2.7 standart sapma ile %97.3 olarak belirlenmiştir.
+
+![alt text](Images/11_1.JPG)
+
+## 12. A Robust Human Activity Recognition Approach Using OpenPose, Motion Features, and Deep Recurrent Neural Network - [PDF](PDFs/12_A_Robust_Human_Activity_Recognition_Approach_Using_OpenPose_Motion_Features_and_Deep_Recurrent_Neural_Network.pdf)
+
+https://link.springer.com/chapter/10.1007/978-3-030-20205-7_25
+
+Makalede yapılan çalışmanın amacı, RGB kamera ile OpenPose kütüphanesi kullanılarak elde edilen iskelet bilgisini Long Short-term Memory (LSTM) hücreli Recurrent Neural Network'e (RNN) vererek insan hareketlerini algılamaktır.
+
+![alt text](Images/12_1.JPG)
+
+Makaleye göre OpenPose kütüphanesi bir insandan 18 iskelet parçası çıkarmaktadır. Fakat bu çalışmada 14,15,16 ve 17 numaralı parçalar (kafa bölgesi) kullanılmamaktadır. Makalede yapılan çalışmada insan hareketlerini algılamak için RNN ile LSTM kullanılmıştır. Makalede RNN'in kısa süreli işlemlerde çok verimli olduğu belirtilmiştir. Fakat uzun süreli işlemler için aynı şey söylenememektedir. Bunu elimine etmek için RNN, LSTM ile beraber kullanılmıştır. Yapılan çalışmalar sonucunda LSTM'in SVM, Decision Tree ve Random Forest sınıflandırma algoritalarından daha iyi iş çıkardığı gözlemlenmiştir.
+
+## 13 Human Activity Recognition by Using Convolutional Neural Network - [PDF](PDFs/13_Human_Activity_Recognition_by_Using_Convolutional_Neural_Network.pdf)
+
+Makalede yapılan çalışmanın amacı, hareket algılamayı daha iyi yapacağı için termal kamera kullanarak konvolüsyonel sinir ağları (CNN) ile insan hareketlerini algılamaktır. Görüntü kameradan alındıktan sonra ilk olarak manuel olarak kesilir. Sonrasında arkaplan çıkarılır ve görüntü threshold edilir. Görüntünün daha iyi sonuç vermesi için görüntü morfolojik işlemlerde geçirilmektedir. Arka plan görüntüsü orjinal görüntüden çıkarılarak insanın olduğu kısım bulunmaktadır ve bu kısım 224x224 büyüklüğündeki bir görüntüye fit edilmektedir. Bütün görüntüler kullanılarak bir ortalama görüntü elde edilir ve bu görüntü farklı filtrelerden geçirilerek 2 farklı görüntü oluşturulur.
+
+![alt text](Images/13_1.JPG)
+
+Bu iki farklı görüntü ve ortalama görüntüsü birleştirilerek aşağıdaki görüntüler oluşur:
+
+![alt text](Images/13_2.JPG)
+
+CNN olarak VGG16-Net mimarisi kullanılmıştır ve doğruluğu %95.9 olarak tespit edilmiştir.
